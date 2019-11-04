@@ -157,7 +157,7 @@ for index in range(len(circuit)):
 	index2 = g['input2']
 	value_list[g['output']] = enc_t_table[index][(value_list[index1], value_list[index2])]
 #print(enc_to_org)
-#print(enc_table)
+print(enc_t_table)
 #print(value_list)
 #print(len(value_list))
 print(enc_to_org[value_list[len(value_list)]])
