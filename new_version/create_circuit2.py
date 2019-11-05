@@ -54,6 +54,7 @@ gate_table = {	'and':[a,b,ANDList],
 				'xor':[a,b,XORList],
 				'nand':[a,b,NANDList],
 				'nor':[a,b,NORList]	}
+print(gate_table['xor'])
 
 input_circuit = input("please input the circuit: ")
 op_table = ['or', 'and', 'xor', 'nand', 'nor']
@@ -93,7 +94,7 @@ for i in lst:
 		input_table[i] = count
 		input_table_num.append(count)
 		count += 1
-
+print(circuit)
 label = dict()
 for i in range(1, inp[0]+1,1):
 	label[i] = [get_random(), get_random()]
@@ -128,8 +129,8 @@ for index in range(0, len(circuit), 1):
 			#lst.append(enc_t_table[index][t2])
 			#enc_to_org[enc_t_table[index][t2]] = org_truth_table[2][out_org]
 	enc_table[g['output']] = lst
-	print(lst)
-	print(ans)
+	#print(lst)
+	#print(ans)
 
 
 '''
@@ -194,7 +195,7 @@ for index in range(len(circuit)):
 		c_index += 1
 	if c_index == len(input_value):
 		break
-print(value_list)
+#print(value_list)
 for index in range(len(circuit)):
 	g = circuit[index]
 	index1 = value_list[g['input1']]
@@ -202,10 +203,13 @@ for index in range(len(circuit)):
 	for i in enc_table[g['output']]:
 		dec = enigma.enigma([index1, index2, 0], i[0])
 		if hash((index1, index2, dec)) == i[1]:
+			print(dec)
 			value_list[g['output']] = dec
 			break
-	
-print(enc_to_org[value_list[len(value_list)-1]])
+
+print(enc_to_org)
+print(value_list)
+print(enc_to_org[value_list[len(value_list)]])
 
 '''
 for index in range(len(circuit)):
