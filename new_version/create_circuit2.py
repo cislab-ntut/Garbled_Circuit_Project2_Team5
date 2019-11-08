@@ -49,11 +49,13 @@ for i in range(2):
 
 a = [0,0,1,1]
 b = [0,1,0,1]
+nimplyList = [0,0,1,0]
 gate_table = {	'and':[a,b,ANDList],
 				'or':[a,b,ORList],
 				'xor':[a,b,XORList],
 				'nand':[a,b,NANDList],
-				'nor':[a,b,NORList]	}
+				'nor':[a,b,NORList],
+				'nimply':[a,b,nimplyList]	}
 print(gate_table['xor'])
 
 input_circuit = input("please input the circuit: ")
