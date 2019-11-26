@@ -42,12 +42,16 @@ def addition(sum_table, s_table, a, b):
 	if len(a) < length:
 		for i in range(length - len(a)):
 			a.append(0)
+	
 	s = 0
+
 	for i in range(length):
+		print([a[i],b[i],s])
 		enc_sum_value = cc.enc_input([a[i],b[i],s],sum_table[i]["circuit"],sum_table[i]["input_to_enc"], sum_table[i]["input_table_num"])
 		new_sum.append(cc.dec(enc_sum_value, sum_table[i]["circuit"], sum_table[i]["enc_table"], sum_table[i]["enc_to_org"]))
 		enc_s_value = cc.enc_input([a[i],b[i],a[i],b[i],s],s_table[i]["circuit"],s_table[i]["input_to_enc"], s_table[i]["input_table_num"])
 		s = cc.dec(enc_s_value, s_table[i]["circuit"], s_table[i]["enc_table"], s_table[i]["enc_to_org"])
+		print("s:",s)
 	'''
 	if s == 1:
 		new_sum.append(s)
@@ -115,8 +119,8 @@ def create_circuit(size, max_val,func):
 			garbled_circuit[i].append(d)
 	return garbled_circuit
 
-how_many_bit = 16#8
-p = 251#65533
+how_many_bit = 4#8
+p = 13#65533
 max_val = list()
 for i in range(how_many_bit):
 	max_val.append(1)
@@ -152,8 +156,8 @@ f.write(str(add_sum))
 f.close()
 #g = int(input("please enter g: "))
 #x = int(input("please enter x: "))
-g = 255#65535
-x = 255#65535
+g = 15#65535
+x = 15#65535
 #p = int(input("please enter p: "))
 g_bin = dec_to_bin(g)
 p = dec_to_bin(p)
